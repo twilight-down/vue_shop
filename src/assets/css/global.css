@@ -6,6 +6,8 @@ body,
     height: 100%;
     margin: 0;
     padding: 0;
+    /* 指定最小宽度 防止屏幕缩放导致内容掉下来 */
+    min-width: 1366px;
 }
 
 .el-breadcrumb {

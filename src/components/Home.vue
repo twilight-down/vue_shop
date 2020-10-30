@@ -56,7 +56,7 @@
     export default {
       data(){
         return {
-          // 左侧菜单数据
+          // 左侧菜单数据 从后端获取并且绑定在左侧菜单中（通过两个for循环）
           menulist:[],
           iconsObj:{
             '125':'iconfont icon-user',
@@ -82,7 +82,7 @@
             //获取所有的菜单
             async getMenuList() {
                 const { data: res } = await this.$http.get('menus');
-                // this.$message 是定义在后端的一个方法 用于获取信息'success', 'warning', 'info', 'error'的信息
+                // this.$message 是挂载在prototype原型上的一个方法 用于获取信息'success', 'warning', 'info', 'error'的信息
                 if(res.meta.status!=200) return this.$message.error(res.meta.msg);
                 this.menulist=res.data;
                 // console.log(res.data);
