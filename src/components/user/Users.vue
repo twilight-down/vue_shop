@@ -67,7 +67,7 @@
           layout="total, sizes, prev, pager, next, jumper"
           :total="total">
         </el-pagination>
-      </el-card>
+    </el-card>
      <!-- 添加用户的对话框 -->
       <el-dialog title="添加用户"
         :visible.sync="addDialogVisible" width="50%"
