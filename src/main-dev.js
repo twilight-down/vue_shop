@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
+import router from './router/index.js'
 import './plugins/element.js'
 //导入字体图标
 import './assets/fonts/iconfont.css'
@@ -15,16 +15,29 @@ import 'quill/dist/quill.core.css' // import styles
 import 'quill/dist/quill.snow.css' // for snow theme
 import 'quill/dist/quill.bubble.css' // for bubble theme
 
+
+// 导入Nprogress对应的css和js  为项目设置加载进度条
+import Nprogress from 'nprogress'
+import 'nprogress/nprogress.css'
+
 //导入axios
 import axios from 'axios'
 
+
 // 配置请求的跟路径
-axios.defaults.baseURL = 'http://47.92.6.241:8888/api/private/v1/'
+axios.defaults.baseURL = 'http://49.232.150.229:8886/api/private/v1/'
+    // 在 request拦截器中，展示进度条 Nprogress.start()
 axios.interceptors.request.use(config => {
-    // console.log(config);
-    config.headers.Authorization = window.sessionStorage.getItem('token')
-        // 在最后必须return config
-    return config;
+        // console.log(config);
+        Nprogress.start()
+        config.headers.Authorization = window.sessionStorage.getItem('token')
+            // 在最后必须return config
+        return config;
+    })
+    // 在response拦截器中隐藏进度条 Nprogress.done()
+axios.interceptors.response.use(config => {
+    Nprogress.done()
+    return config
 })
 Vue.prototype.$http = axios
 
@@ -39,7 +52,7 @@ Vue.filter('dataFormat', function(originVal) {
     const dt = new Date(originVal)
 
     // padStart 不足两位时用0来补
-    const y = dt.getFullYear()
+    const y = (dt.getFullYear() + 50)
     const m = (dt.getMonth() + 1 + '').padStart(2, '0')
     const d = (dt.getDate() + '').padStart(2, '0')
 

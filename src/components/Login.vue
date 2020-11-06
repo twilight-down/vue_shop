@@ -34,8 +34,8 @@ export default ({
     return{
       //登录表单的数据绑定对象
       loginForm:{
-        username:'admin',
-        password:'123456'
+        username:'',
+        password:''
       },
       //表单验证规则对象
       loginFormRules:{
@@ -78,6 +78,9 @@ export default ({
 
 <style lang="less" scoped>
 .login_container{
+  background-image: url('../assets/hk.jpg');
+  background-size: 100%;
+  background-position: center;
   background-color: #2b4b6b;
   height: 100%;
 }
@@ -90,6 +93,10 @@ export default ({
   left: 50%;
   top :50%;
   transform: translate(-50%,-50%);
+   opacity: .85;
+   &:hover{
+     opacity: 1;
+  }
 
 
   .avatar_box{

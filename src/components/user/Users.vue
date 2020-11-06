@@ -279,6 +279,7 @@ export default {
   },
   created(){
     this.getUserList()
+    console.log('1');
   },
   methods:{
    async getUserList(){

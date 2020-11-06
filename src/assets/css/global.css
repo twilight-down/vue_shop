@@ -43,3 +43,11 @@ body,
 .el-scrollbar__wrap {
     height: 400px !important;
 }
+
+.el-breadcrumb__inner {
+    color: aliceblue !important;
+}
+
+.el-main {
+    padding: 10px;
+}

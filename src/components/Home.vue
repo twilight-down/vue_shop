@@ -5,7 +5,7 @@
       <div>
         <!-- <img src="../assets/heima.png" alt=""> -->
         <img src="../assets/hui.png" alt="">
-        <span>电商后台管理系统</span>
+        <span>灰原哀的小店</span>
       </div>
       <el-button type="info" @click="logout">退出</el-button> 
     </el-header>
@@ -134,7 +134,8 @@
   }
 }
 .el-main{
-  background-color: #EAEDF1;
+  background-image: url('../assets/timg.jpg');
+  background-size: 100%;
 }
 .iconfont{
   margin-right: 10px;
